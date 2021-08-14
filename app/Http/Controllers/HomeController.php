@@ -10,4 +10,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function showPostDetail($slug)
+    {
+        $post = $slug;
+        dd($post);
+        return view('homepage.show-post-detail');
+    }
 }
