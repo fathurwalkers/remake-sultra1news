@@ -9,16 +9,10 @@ class CekLogin
 {
     public function handle(Request $request, Closure $next)
     {
-        echo 'login';
-        die;
         $users = session('data_login');
-        // dd($users);
-        if ($users == null) {
-            echo 'if berhasil';
-            redirect('/login')->with('gagal_login', 'Login gagal, username atau password salah')->withInput();
-        } else {
-            echo 'if gagal';
-            return $next($request);
+        if ($users === null) {
+            return redirect('/login')->with('gagal_masuk', 'silahkan login terlebih dahulu')->withInput();
         }
+        return $next($request);
     }
 }

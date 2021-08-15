@@ -386,8 +386,8 @@
                 <div class="modal-footer">
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button class="btn btn-secondary" type="submit" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
+                        <a class="btn btn-secondary" data-dismiss="modal">Cancel</a>
+                        <button class="btn btn-primary" type="submit">Logout</button>
                     </form>
                 </div>
             </div>
