@@ -3,16 +3,16 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Artikel;
+use App\Models\Login;
+use App\Models\Kategori;
+use App\Models\ArtikelKategori;
+use App\Models\Gambar;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        //
     }
 }
