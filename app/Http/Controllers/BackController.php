@@ -29,19 +29,38 @@ class BackController extends Controller
 
     public function postLogin(Request $request)
     {
-        $data_login = Login::where('username', $request->username)->firstOrFail();
+        // dump($request->username);
+        // dump($request->password);
+        // dd($request);
+        $data_login = Login::where('username', $request->username)->first();
         $cek_password = Hash::check($request->password, $data_login->password);
-        if ($data_login != null) {
+        dd($cek_password);
+        if ($data_login) {
             if ($cek_password) {
-                if ($data_login->level === 'admin') {
-                    $users = session(['data_login' => $data_login]);
-                    return redirect('/dashboard')->with('berhasil_login', 'Anda telah login!');
-                } elseif ($data_login->level === 'admin') {
-                    $users = session(['data_login' => $data_login]);
-                    return redirect('/dashboard')->with('berhasil_login', 'Anda telah login!');
+                switch ($data_login->level) {
+                    case 'admin':
+                        echo 'admin berhasil';
+                        die;
+                        $users = session(['data_login' => $data_login]);
+                        return redirect('/dashboard')->with('berhasil_login', 'Anda telah login!');
+                        break;
+                    case 'author':
+                        echo 'author berhasil';
+                        die;
+                        $users = session(['data_login' => $data_login]);
+                        return redirect('/dashboard')->with('berhasil_login', 'Anda telah login!');
+                        break;
+                    case 'moderator':
+                        echo 'moderator berhasil';
+                        die;
+                        $users = session(['data_login' => $data_login]);
+                        return redirect('/dashboard')->with('berhasil_login', 'Anda telah login!');
+                        break;
                 }
             }
         }
+        echo 'gagal';
+        die;
         return redirect('/login')->with('gagal_login', 'Login gagal, username atau password salah')->withInput();
     }
 

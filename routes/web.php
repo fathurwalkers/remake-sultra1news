@@ -5,8 +5,8 @@ use App\Http\Controllers\BackController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ArtikelController;
 
-Route::get('/login', [HomeController::class, 'login'])->name('login');
-Route::post('/login', [HomeController::class, 'postLogin'])->name('post-login');
+Route::get('/login', [BackController::class, 'login'])->name('login');
+Route::post('/post-login', [BackController::class, 'postLogin'])->name('post-login');
 
 Route::group(['prefix' => '/'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
