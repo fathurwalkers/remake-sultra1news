@@ -14,10 +14,6 @@ class BackController extends Controller
 {
     public function index()
     {
-        // $users = session('data_login');
-        // if ($users !== null) {
-        //     return redirect('dashboard')->with('gagal_beralih', 'Anda telah login, tidak dapat beralih ke halaman login!');
-        // }
         return view('dashboard');
     }
 
@@ -34,12 +30,7 @@ class BackController extends Controller
     {
         $username = $request->username;
         $password = $request->password;
-        // dump($request->username);
-        // dump($request->password);
-        // dd($request);
         $data_login = Login::where('username', $username)->first();
-        // $cek_password = Hash::check($password, $data_login->password);
-        // dd($cek_password);
         if ($data_login) {
             if ($cek_password = Hash::check($password, $data_login->password)) {
                 switch ($data_login->role) {
