@@ -3,6 +3,12 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use Faker\Factory as Faker;
+use Illuminate\Support\Arr as Randoms;
+
 use App\Models\Artikel;
 use App\Models\Login;
 use App\Models\Kategori;
@@ -13,6 +19,53 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        //
+        $token = Str::random(16);
+        $role = "admin";
+        $hashPassword = Hash::make('Fathur160199Seven', [
+            'rounds' => 12,
+        ]);
+        $hashToken = Hash::make($token, [
+            'rounds' => 12,
+        ]);
+        Login::create([
+            'name' => 'Muh. Fathurrahman',
+            'email' => 'fathurwalkers44@gmail.com',
+            'username' => 'fathurwalkers',
+            'password' => $hashPassword,
+            'token' => $hashToken,
+            'role' => $role
+        ]);
+
+        // ----------------------------------------------------------------------
+
+        $token2 = Str::random(16);
+        $role2 = "author";
+        $hashPassword2 = Hash::make('sultra1news_author', [
+            'rounds' => 12,
+        ]);
+        Login::create([
+            'name' => 'Author Originial',
+            'email' => 'author@sultra1news.com',
+            'username' => 'sultra1news_author',
+            'password' => $hashPassword2,
+            'token' => $hashToken2,
+            'role' => $role2
+        ]);
+
+        // ----------------------------------------------------------------------
+
+        $token3 = Str::random(16);
+        $role3 = "moderator";
+        $hashPassword3 = Hash::make('sultra1news_moderator', [
+            'rounds' => 12,
+        ]);
+        Login::create([
+            'name' => 'Moderator Originial',
+            'email' => 'moderator@sultra1news.com',
+            'username' => 'sultra1news_moderator',
+            'password' => $hashPassword3,
+            'token' => $hashToken3,
+            'role' => $role3
+        ]);
     }
 }
