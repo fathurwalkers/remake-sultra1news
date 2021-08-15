@@ -26,11 +26,6 @@ class BackController extends Controller
         return view('login');
     }
 
-    public function register()
-    {
-        return view('register');
-    }
-
     public function postLogin(Request $request)
     {
         $username = $request->username;
@@ -63,11 +58,6 @@ class BackController extends Controller
             }
         }
         return redirect('/login')->with('gagal_login', 'Login gagal, username atau password salah')->withInput();
-    }
-
-    public function postRegister(Request $request)
-    {
-        //
     }
 
     public function logout(Request $request)
