@@ -44,6 +44,16 @@
                                             {{ session('gagal_login') }}
                                         </div>
                                     @endif
+                                    @if (session('berhasil_logout'))
+                                        <div class="alert alert-danger">
+                                            {{ session('berhasil_logout') }}
+                                        </div>
+                                    @endif
+                                    @if (session('gagal_beralih'))
+                                        <div class="alert alert-danger">
+                                            {{ session('gagal_beralih') }}
+                                        </div>
+                                    @endif
                                     <form class="user" action="{{ route('post-login') }}" method="POST">
                                         @csrf
                                         {{-- <hr> --}}
