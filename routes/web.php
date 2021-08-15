@@ -17,4 +17,6 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     Route::get('/', [BackController::class, 'index'])->name('dashboard');
     Route::post('/logout', [BackController::class, 'logout'])->name('logout');
     Route::get('/daftar-artikel', [ArtikelController::class, 'daftarArtikel'])->name('daftar-artikel');
+    Route::get('/tambah-artikel', [ArtikelController::class, 'tambahArtikel'])->name('tambah-artikel');
+    Route::post('/tambah-artikel', [ArtikelController::class, 'postTambahArtikel'])->name('post-tambah-artikel');
 });

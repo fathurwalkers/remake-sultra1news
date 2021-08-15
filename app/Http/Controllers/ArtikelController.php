@@ -18,4 +18,14 @@ class ArtikelController extends Controller
             'data' => $ok
         ]);
     }
+
+    public function tambahArtikel()
+    {
+        return view('dashboard.tambah-artikel');
+    }
+
+    public function postTambahArtikel(Request $request)
+    {
+        //
+    }
 }
