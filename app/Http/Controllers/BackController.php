@@ -14,6 +14,10 @@ class BackController extends Controller
 {
     public function index()
     {
+        // $users = session('data_login');
+        // if ($users !== null) {
+        //     return redirect('dashboard')->with('gagal_beralih', 'Anda telah login, tidak dapat beralih ke halaman login!');
+        // }
         return view('dashboard');
     }
 
