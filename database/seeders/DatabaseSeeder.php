@@ -33,7 +33,9 @@ class DatabaseSeeder extends Seeder
             'username' => 'fathurwalkers',
             'password' => $hashPassword,
             'token' => $hashToken,
-            'role' => $role
+            'role' => $role,
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
         // ----------------------------------------------------------------------
@@ -49,7 +51,9 @@ class DatabaseSeeder extends Seeder
             'username' => 'sultra1news_author',
             'password' => $hashPassword2,
             'token' => $hashToken2,
-            'role' => $role2
+            'role' => $role2,
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
         // ----------------------------------------------------------------------
@@ -65,7 +69,20 @@ class DatabaseSeeder extends Seeder
             'username' => 'sultra1news_moderator',
             'password' => $hashPassword3,
             'token' => $hashToken3,
-            'role' => $role3
+            'role' => $role3,
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
+
+        // ----------------------------------------------------------------------
+        $nama_kategori = [
+            'Sultra1News', 'Internasional', 'Nasional', 'Terbaru', 'Advetorial', 'Sulawesi Tenggara', 'Sulawesi Utara', 'Sulawesi Tengah', 'Sulawesi Selatan', 'Sulawesi Barat', 'Jakarta', 'Kota Kendari', 'Kota Baubau', 'Buton', 'Buton Selatan', 'Buton Tengah', 'Buton Utara', 'Pasarwajo', 'Sport', 'Health', 'Tutorial', 'Entertainment', 'Hiburan', 'Games', 'Menarik', 'Viral', 'Trending', 'Hot', 'People', 'Sosial', 'Politik', 'Hukum', 'Kontroversial', 'Kasus', 'Teknologi', 'Event', 'AS Tamrin'
+        ];
+
+        foreach ($nama_kategori as $kategori) {
+            Kategori::create([
+                ''
+            ]);
+        }
     }
 }
