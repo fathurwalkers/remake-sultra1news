@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Artikel;
 
-class Kategori extends Model
+class Komen extends Model
 {
     use HasFactory;
 
-    protected $table = 'kategori';
+    protected $table = 'komen';
 
     public function artikel()
     {
-        return $this->belongsToMany(Artikel::class);
+        return $this->belongsTo(Artikel::class);
     }
 }
