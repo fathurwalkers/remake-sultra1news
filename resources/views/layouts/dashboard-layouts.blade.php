@@ -65,7 +65,7 @@
                     <span>Artikel</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
+                    <div class="bg-white py-1 collapse-inner rounded">
                         <h6 class="collapse-header">Kelola Artikel</h6>
                         <a class="collapse-item" href="buttons.html">Semua Artikel</a>
                         <a class="collapse-item" href="cards.html">Tambah Artikel</a>
@@ -81,16 +81,19 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Kategori</span>
+                    <span>Utilitas Lain</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
+                    <div class="bg-white py-1 collapse-inner rounded">
                         <h6 class="collapse-header">Kelola Kategori</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <a class="collapse-item" href="utilities-color.html">Daftar Kategori</a>
+                        <a class="collapse-item" href="utilities-border.html">Tambah Kategori</a>
+
+                        <h6 class="collapse-header">Kelola Media</h6>
+                        <a class="collapse-item" href="utilities-color.html">Daftar Gambar</a>
+                        <a class="collapse-item" href="utilities-color.html">Daftar Video</a>
+                        <a class="collapse-item" href="utilities-color.html">Daftar Audio</a>
                     </div>
                 </div>
             </li>
@@ -100,21 +103,14 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Kelola Pengguna 
             </div>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                    <span>Member</span></a>
             </li>
 
             <!-- Divider -->
