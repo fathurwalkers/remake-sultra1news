@@ -45,6 +45,9 @@ class DatabaseSeeder extends Seeder
         $hashPassword2 = Hash::make('sultra1news_author', [
             'rounds' => 12,
         ]);
+        $hashToken2 = Hash::make($token2, [
+            'rounds' => 12,
+        ]);
         Login::create([
             'name' => 'Author Originial',
             'email' => 'author@sultra1news.com',
@@ -61,6 +64,9 @@ class DatabaseSeeder extends Seeder
         $token3 = Str::random(16);
         $role3 = "moderator";
         $hashPassword3 = Hash::make('sultra1news_moderator', [
+            'rounds' => 12,
+        ]);
+        $hashToken3 = Hash::make($token3, [
             'rounds' => 12,
         ]);
         Login::create([
@@ -81,7 +87,9 @@ class DatabaseSeeder extends Seeder
 
         foreach ($nama_kategori as $kategori) {
             Kategori::create([
-                ''
+                'kategori_name' => $kategori,
+                'created_at' => now(),
+                'updated_at' => now()
             ]);
         }
     }
