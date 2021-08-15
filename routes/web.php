@@ -9,4 +9,6 @@ Route::group(['prefix' => '/'], function () {
     Route::get('/show/{slug}', [HomeController::class, 'showPostDetail'])->name('show-post-detail');
 });
 
-Route::get('/dashboard', [BackController::class, 'index'])->name('dashboard');
+Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function () {
+    Route::get('/', [BackController::class, 'index'])->name('dashboard');
+});

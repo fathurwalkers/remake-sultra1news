@@ -32,8 +32,7 @@ class BackController extends Controller
     {
         $data_login = Login::where('username', $request->username)->firstOrFail();
         $cek_password = Hash::check($request->password, $data_login->password);
-
-        if ($data_login) {
+        if ($data_login != null) {
             if ($cek_password) {
                 if ($data_login->level === 'admin') {
                     $users = session(['data_login' => $data_login]);
@@ -44,7 +43,6 @@ class BackController extends Controller
                 }
             }
         }
-        Alert::success('Login berhasil', 'Anda telah berhasil login!');
         return redirect('/login')->with('gagal_login', 'Login gagal, username atau password salah')->withInput();
     }
 
