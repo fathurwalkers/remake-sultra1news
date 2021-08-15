@@ -7,7 +7,6 @@ use App\Models\Login;
 use App\Models\Artikel;
 use App\Models\Gambar;
 use App\Models\Kategori;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -49,5 +48,11 @@ class BackController extends Controller
     public function postRegister(Request $request)
     {
         //
+    }
+
+    public function logout(Request $request)
+    {
+        $request->session()->flush();
+        return redirect()->route('dashboard');
     }
 }
