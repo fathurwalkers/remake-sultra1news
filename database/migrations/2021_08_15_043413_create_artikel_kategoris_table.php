@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateArtikelKategorisTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('artikel_kategori', function (Blueprint $table) {
@@ -24,11 +19,6 @@ class CreateArtikelKategorisTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('artikel_kategori');
