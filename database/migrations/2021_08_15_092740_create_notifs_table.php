@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateNotifsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('notif', function (Blueprint $table) {
@@ -23,12 +18,7 @@ class CreateNotifsTable extends Migration
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
         Schema::dropIfExists('notif');
