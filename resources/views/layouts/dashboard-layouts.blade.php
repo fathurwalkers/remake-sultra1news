@@ -19,6 +19,9 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets/sbadmin2/') }}/css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/datatables/') }}/datatables.min.css"/>
+
+    @yield('css')
 
 </head>
 
@@ -67,7 +70,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-1 collapse-inner rounded">
                         <h6 class="collapse-header">Kelola Artikel</h6>
-                        <a class="collapse-item" href="buttons.html">Semua Artikel</a>
+                        <a class="collapse-item" href="{{ route('daftar-artikel') }}">Semua Artikel</a>
                         <a class="collapse-item" href="cards.html">Tambah Artikel</a>
                         <a class="collapse-item" href="cards.html">Revisi Artikel</a>
                         <a class="collapse-item" href="cards.html">Artikel Dihapus</a>
@@ -347,13 +350,13 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+            {{-- <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; Your Website 2020</span>
                     </div>
                 </div>
-            </footer>
+            </footer> --}}
             <!-- End of Footer -->
 
         </div>
@@ -399,6 +402,9 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('assets/sbadmin2/') }}/js/sb-admin-2.min.js"></script>
+    <script type="text/javascript" src="{{ asset('assets/datatables/') }}/datatables.min.js"></script>
+
+    @stack('js')
 
 </body>
 
