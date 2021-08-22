@@ -3,7 +3,8 @@
 @section('main-section')
 <div class="card">
     <div class="card-header bg-dark text-white text-bold">
-        Semua Artikel 
+            Semua Postingan
+        <a class="btn btn-success btn-sm float-right" href="{{ route('tambah-artikel') }}" role="button">Tambah Postingan</a>
     </div>
     <div class="card-body">
         <table id="example1" class="table table-bordered" style="width:100%">
