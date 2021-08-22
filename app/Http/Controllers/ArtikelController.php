@@ -29,6 +29,6 @@ class ArtikelController extends Controller
 
     public function postTambahArtikel(Request $request)
     {
-        //
+        dd($request->checkbox1);
     }
 }
