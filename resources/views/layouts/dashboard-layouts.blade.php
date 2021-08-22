@@ -21,7 +21,7 @@
     <link href="{{ asset('assets/sbadmin2/') }}/css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/datatables/') }}/datatables.min.css"/>
 
-    @yield('css')
+    @stack('css')
 
 </head>
 
