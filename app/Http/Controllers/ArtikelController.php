@@ -21,7 +21,10 @@ class ArtikelController extends Controller
 
     public function tambahArtikel()
     {
-        return view('dashboard.tambah-artikel');
+        $kategori = Kategori::all();
+        return view('dashboard.tambah-artikel', [
+            'kategori' => $kategori
+        ]);
     }
 
     public function postTambahArtikel(Request $request)

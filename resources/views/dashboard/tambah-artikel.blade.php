@@ -2,6 +2,15 @@
 
 @push('css')
 <script src="https://cdn.tiny.cloud/1/0fzrtif8pxlg6kw3rfi13s2t5xzfaiqpavx3fiqci9ysvmva/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<style>
+    .makescroll {
+        border:2px solid #ccc;
+         width:300px; height: 100px;
+          overflow-y: scroll!important;
+    }
+</style>
+
 @endpush
 
 @section('main-section')
@@ -50,11 +59,23 @@
                                                 </div>
                                                 <select class="custom-select" id="inputGroupSelect01">
                                                     <option selected>Choose...</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                        @foreach ($kategori as $kat)
+                                                            <option value="{{ $kat->id }}">{{ $kat->kategori_name }}</option>
+                                                        @endforeach
                                                 </select>
-                                              </div>
+                                            </div>
+                                            
+                                            <div class="dropdown">
+                                                <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                  Dropdown Checkbox
+                                                </button>
+                                                <div class="dropdown-menu makescroll" aria-labelledby="dropdownMenuButton">
+                                                    @foreach ($kategori as $kat2)
+                                                        <a class="dropdown-item" href="#"><input class="" type="checkbox" name="checkbox" value="{{ $kat2->id }}">&nbsp; {{ $kat2->kategori_name }}</a>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
