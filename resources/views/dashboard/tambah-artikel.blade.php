@@ -34,13 +34,13 @@
                                                     <div class="input-group-prepend">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Judul : </span>
                                                     </div>
-                                                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="artikel_judul">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12 col-md-12">
-                                                <textarea>
+                                                <textarea  name="artikel_isi">
                                                     
                                                 </textarea>
                                             </div>
@@ -80,6 +80,21 @@
                                                     <input type="file" id="inputGroupFile01"  name="gambar">
                                                     <label class="custom-file-label" for="inputGroupFile01">...</label>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mx-auto d-flex justify-content-center">
+                                            <div class="col-lg-12 col-sm-12 col-md-12 p-0">
+                                                <div class="input-group mt-3">
+                                                    <div class="input-group-prepend">
+                                                      <label class="input-group-text" for="inputGroupSelect01">Status Berita : </label>
+                                                    </div>
+                                                    <select class="custom-select" id="inputGroupSelect01" name="artikel_status">
+                                                      <option selected>Choose...</option>
+                                                      <option value="published">Published</option>
+                                                      <option value="draft">Draft</option>
+                                                      <option value="review">Review</option>
+                                                    </select>
+                                                  </div>
                                             </div>
                                         </div>
                                     </div>
