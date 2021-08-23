@@ -16,12 +16,12 @@
 @section('main-section')
     <div class="card">
         <div class="card-header bg-dark text-white text-bold">
-            Tambah Postingan 
+            Tambah Berita 
             <a class="btn btn-danger btn-sm float-right" href="{{ route('daftar-artikel') }}" role="button">Kembali</a>
         </div>
         <div class="card-body">
             <div class="container">
-                <form action="{{ route('post-tambah-artikel') }}" method="POST">
+                <form action="{{ route('post-tambah-artikel') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-lg-8 col-sm-8 col-md-8">
@@ -53,31 +53,33 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-12 col-sm-12 col-md-12">
+                                        <div class="row mx-auto d-flex justify-content-center">
+                                            <div class="col-lg-12 col-sm-12 col-md-12 p-0">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <label class="input-group-text" for="inputGroupSelect01">Kategori</label>
-                                                    </div>
-                                                    <select class="custom-select" id="inputGroupSelect01">
-                                                        <option selected>Choose...</option>
-                                                            @foreach ($kategori as $kat)
-                                                                <option value="{{ $kat->id }}">{{ $kat->kategori_name }}</option>
-                                                            @endforeach
-                                                    </select>
-                                                </div>
-                                                
-                                                <div class="dropdown">
-                                                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    Dropdown Checkbox
-                                                    </button>
-                                                    <div class="dropdown-menu makescroll" aria-labelledby="dropdownMenuButton">
-                                                        @foreach ($kategori as $kat2)
-                                                            <a class="dropdown-item" href="#"><input class="" type="checkbox" name="checkbox1[]" value="{{ $kat2->id }}">&nbsp; {{ $kat2->kategori_name }}</a>
-                                                        @endforeach
+                                                        <div class="dropdown">
+                                                            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            Pilih Kategori Berita 
+                                                            </button>
+                                                            <div class="dropdown-menu makescroll" aria-labelledby="dropdownMenuButton">
+                                                                @foreach ($kategori as $kat2)
+                                                                    <a class="dropdown-item" href="#"><input class="" type="checkbox" name="kategori[]" value="{{ $kat2->id }}">&nbsp; {{ $kat2->kategori_name }}</a>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-sm-12 col-md-12 p-0">
+                                            <div class="input-group mb-1">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroupFileAddon01">Gambar depan</span>
+                                                </div>
+                                                <div class="custom-file">
+                                                    <input type="file" id="inputGroupFile01"  name="gambar">
+                                                    <label class="custom-file-label" for="inputGroupFile01">...</label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

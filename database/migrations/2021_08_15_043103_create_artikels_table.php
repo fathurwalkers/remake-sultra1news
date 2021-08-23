@@ -13,7 +13,7 @@ class CreateArtikelsTable extends Migration
             $table->string('artikel_judul', 1000);
             $table->longText('artikel_isi');
             $table->string('artikel_slug');
-            $table->string('artikel_status');
+            $table->string('artikel_status'); // PUBLISHED - DRAFT - TRASH
             $table->string('artikel_dibuat');
             $table->unsignedBigInteger('login_id');
             $table->foreign('login_id')->references('id')->on('login');

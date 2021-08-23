@@ -29,6 +29,19 @@ class ArtikelController extends Controller
 
     public function postTambahArtikel(Request $request)
     {
-        dd($request->checkbox1);
+        // Status ( published - draft - trash -review )
+        $kategori = $request->kategori;
+        // if ($request->hasFile('gambar')) {
+        //     $randomNamaGambar = Str::random(10) . '.jpg';
+        //     // $gambar = $request->file('gambar')->store('gambar');
+        // }
+        $gambar_cek = $request->file('gambar');
+
+        if (!$gambar_cek) {
+            $gambar = null;
+        }
+        $randomNamaGambar = Str::random(10) . '.jpg';
+        $gambar = $request->file('gambar')->storeAs('post-images', strtolower($randomNamaGambar));
+        dump($gambar);
     }
 }
