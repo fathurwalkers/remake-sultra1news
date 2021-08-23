@@ -80,9 +80,9 @@ class ArtikelController extends Controller
             'created_at' => now(),
             'updated_at' => now()
         ]);
-        $saveArtikel->kategori()->attach([$kategori]);
-        $saveArtikel->login()->associate($users->id);
         $saveArtikel->save();
+        $saveArtikel->kategori()->attach($kategori);
+        $saveArtikel->login()->associate($users->id);
         dd($saveArtikel);
     }
 }
