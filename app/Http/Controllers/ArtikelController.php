@@ -40,14 +40,14 @@ class ArtikelController extends Controller
         $ExplodeJudul = explode(" ", $judul);
         dump($ExplodeJudul);
         $judulPostImplode = [];
-        for ($x = 0; $x < 6; $x++) {
-            // echo $ExplodeJudul[$x] . " / ";
-            $newJudul = array(
-                $judulPostImplode => $ExplodeJudul[$x]
-            );
+        for ($x = 6; $x >= 0; $x--) {
+            echo $ExplodeJudul[$x] . " / ";
+            $judulPostImplode = Arr::prepend($judulPostImplode, $ExplodeJudul[$x]);
         }
+        // $beforeTrim = trim(".", $judulPostImplode);
+        $ImplodedJudul = implode("-", str_replace(',', '.', '!', $judulPostImplode));
+        dump($ImplodedJudul);
         dump($judulPostImplode);
-        dump($newJudul);
         die;
 
         if (!$gambar_cek) {
