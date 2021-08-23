@@ -12,6 +12,8 @@ class Komen extends Model
 
     protected $table = 'komen';
 
+    protected $guarded = [];
+
     public function artikel()
     {
         return $this->belongsTo(Artikel::class);

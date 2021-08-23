@@ -10,4 +10,6 @@ class Notif extends Model
     use HasFactory;
 
     protected $table = 'notif';
+
+    protected $guarded = [];
 }

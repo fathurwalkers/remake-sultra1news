@@ -55,6 +55,15 @@ class ArtikelController extends Controller
             $randomNamaGambar = Str::random(10) . '.jpg';
             $gambar = $request->file('gambar')->move(public_path('post-images'), strtolower($randomNamaGambar));
         }
-        dd($gambar);
+        $saveGambar = new Gambar;
+        $saveGambar = Gambar::create([
+            'gambar_name' => $gambar->getFilename(),
+            'gambar_slug' => $artikel_slug,
+            'gambar_alt' => $artikel_slug,
+            'gambar_deskripsi' => $artikel_slug,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $saveGambar->save();
     }
 }

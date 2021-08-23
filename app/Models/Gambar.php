@@ -10,4 +10,6 @@ class Gambar extends Model
     use HasFactory;
 
     protected $table = 'gambar';
+
+    protected $guarded = [];
 }
