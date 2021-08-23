@@ -9,6 +9,16 @@
          width:300px; height: 100px;
           overflow-y: scroll!important;
     }
+
+    label {
+        margin-left: 20px;
+    }
+    #datepicker {
+        width:180px; margin: 0 20px 20px 20px;
+    }
+    #datepicker > span:hover{
+        cursor: pointer;
+    }
 </style>
 
 @endpush
@@ -53,9 +63,17 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="container">
-                                        <div class="row mx-auto d-flex justify-content-center">
-                                            <div class="col-lg-12 col-sm-12 col-md-12 p-0">
-                                                <div class="input-group mb-3">
+
+                                        <div class="row mb-2">
+                                            <div class="col-lg-12 col-sm-12 col-md-12 d-flex justify-content-start inline">
+                                                <input type="date" name="artikel_dibuat">  
+                                                </div>  
+                                            </div>
+                                        </div>
+
+                                        <div class="row mx-auto">
+                                            <div class="col-lg-12 col-sm-12 col-md-12 mx-auto d-flex justify-content-center">
+                                                <div class="input-group mb-2">
                                                     <div class="input-group-prepend">
                                                         <div class="dropdown">
                                                             <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -71,20 +89,24 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 col-sm-12 col-md-12 p-0">
-                                            <div class="input-group mb-1">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="inputGroupFileAddon01">Gambar depan</span>
-                                                </div>
-                                                <div class="custom-file">
-                                                    <input type="file" id="inputGroupFile01"  name="gambar">
-                                                    <label class="custom-file-label" for="inputGroupFile01">...</label>
+
+                                        <div class="row mx-auto">
+                                            <div class="col-lg-12 col-sm-12 col-md-12">
+                                                <div class="input-group mb-2">
+                                                    <div class="input-group-prepend">
+                                                      <span class="input-group-text" id="inputGroupFileAddon01">Gambar Depan</span>
+                                                    </div>
+                                                    <div class="custom-file">
+                                                      <input type="file" class="custom-file-input" id="inputGroupFile01" name="gambar">
+                                                      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row mx-auto d-flex justify-content-center">
-                                            <div class="col-lg-12 col-sm-12 col-md-12 p-0">
-                                                <div class="input-group mt-3">
+
+                                        <div class="row mx-auto">
+                                            <div class="col-lg-12 col-sm-12 col-md-12">
+                                                <div class="input-group mt-1">
                                                     <div class="input-group-prepend">
                                                       <label class="input-group-text" for="inputGroupSelect01">Status Berita : </label>
                                                     </div>
@@ -97,6 +119,7 @@
                                                   </div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -120,5 +143,6 @@
             plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
             toolbar_mode: 'floating',
         });
+
     </script>
 @endpush

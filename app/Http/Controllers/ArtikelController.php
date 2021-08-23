@@ -31,7 +31,7 @@ class ArtikelController extends Controller
     public function postTambahArtikel(Request $request)
     {
         // Status ( published - draft - trash -review )
-        
+        $users = session('data_login');
         $artikel_judul = $request->artikel_judul;
         if ($artikel_judul == null) {
             $artikel_judul = null;
@@ -44,7 +44,7 @@ class ArtikelController extends Controller
             $trimJudul = str_replace(array(',', '.', '!'), '', $judulPostImplode);
             $artikel_slug = implode("-", $trimJudul);
         }
-
+        $artikel_dibuat = now();
         $kategori = $request->kategori;
         $artikel_status = $request->artikel_status;
         $artikel_isi = $request->artikel_isi;
