@@ -42,6 +42,5 @@ class ArtikelController extends Controller
         }
         $randomNamaGambar = Str::random(10) . '.jpg';
         $gambar = $request->file('gambar')->storeAs('post-images', strtolower($randomNamaGambar));
-        dump($gambar);
     }
 }
