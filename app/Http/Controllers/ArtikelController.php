@@ -41,6 +41,8 @@ class ArtikelController extends Controller
             $gambar = null;
         }
         $randomNamaGambar = Str::random(10) . '.jpg';
-        $gambar = $request->file('gambar')->storeAs('post-images', strtolower($randomNamaGambar));
+        $gambar = $request->file('gambar')->move(public_path('post-images'), strtolower($randomNamaGambar));
+        dump($gambar);
+        dd($kategori);
     }
 }
