@@ -31,29 +31,30 @@ class ArtikelController extends Controller
     public function postTambahArtikel(Request $request)
     {
         // Status ( published - draft - trash -review )
-        $gambar_cek = $request->file('gambar');
-        $kategori = $request->kategori;
-        $status = $request->artikel_status;
-        $judul = $request->artikel_judul;
-        $isi = $request->artikel_isi;
-
-        $ExplodeJudul = explode(" ", $judul);
-        dump($ExplodeJudul);
-        $judulPostImplode = [];
-        for ($x = 6; $x >= 0; $x--) {
-            echo $ExplodeJudul[$x] . " / ";
-            $judulPostImplode = Arr::prepend($judulPostImplode, $ExplodeJudul[$x]);
+        
+        $artikel_judul = $request->artikel_judul;
+        if ($artikel_judul == null) {
+            $artikel_judul = null;
+        } else {
+            $ExplodeJudul = explode(" ", $artikel_judul);
+            $judulPostImplode = [];
+            for ($x = 6; $x >= 0; $x--) {
+                $judulPostImplode = Arr::prepend($judulPostImplode, $ExplodeJudul[$x]);
+            }
+            $trimJudul = str_replace(array(',', '.', '!'), '', $judulPostImplode);
+            $artikel_slug = implode("-", $trimJudul);
         }
-        // $beforeTrim = trim(".", $judulPostImplode);
-        $ImplodedJudul = implode("-", str_replace(',', '.', '!', $judulPostImplode));
-        dump($ImplodedJudul);
-        dump($judulPostImplode);
-        die;
 
+        $kategori = $request->kategori;
+        $artikel_status = $request->artikel_status;
+        $artikel_isi = $request->artikel_isi;
+        $gambar_cek = $request->file('gambar');
         if (!$gambar_cek) {
             $gambar = null;
+        } else {
+            $randomNamaGambar = Str::random(10) . '.jpg';
+            $gambar = $request->file('gambar')->move(public_path('post-images'), strtolower($randomNamaGambar));
         }
-        $randomNamaGambar = Str::random(10) . '.jpg';
-        $gambar = $request->file('gambar')->move(public_path('post-images'), strtolower($randomNamaGambar));
+        dd($gambar);
     }
 }
