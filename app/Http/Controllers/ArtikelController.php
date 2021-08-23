@@ -44,7 +44,10 @@ class ArtikelController extends Controller
             $trimJudul = str_replace(array(',', '.', '!'), '', $judulPostImplode);
             $artikel_slug = implode("-", $trimJudul);
         }
-        $artikel_dibuat = now();
+        
+        $req_date = $request->artikel_dibuat;
+        $newDate = date("d-m-Y", strtotime($req_date));
+
         $kategori = $request->kategori;
         $artikel_status = $request->artikel_status;
         $artikel_isi = $request->artikel_isi;
@@ -65,5 +68,21 @@ class ArtikelController extends Controller
             'updated_at' => now()
         ]);
         $saveGambar->save();
+
+        $saveArtikel = new Artikel;
+        $saveArtikel = Artikel::create([
+            'artikel_judul' => $artikel_judul,
+            'artikel_isi' => $artikel_isi,
+            'artikel_slug' => $artikel_slug,
+            'artikel_status' => $artikel_status,
+            'artikel_dibuat' => $newDate,
+            'artikel_headergambar' => $saveGambar->gambar_name,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $saveArtikel->kategori()->attach([$kategori]);
+        $saveArtikel->login()->associate($users->id);
+        $saveArtikel->save();
+        dd($saveArtikel);
     }
 }
