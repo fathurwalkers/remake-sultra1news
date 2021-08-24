@@ -14,7 +14,7 @@ class ArtikelController extends Controller
 {
     public function daftarArtikel()
     {
-        $ok = 'daftar artikel';
+        $ok = Artikel::all();
         return view('dashboard.daftar-artikel', [
             'data' => $ok
         ]);

@@ -18,23 +18,25 @@
             </tr>
         </thead>
             <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>
-                    <div class="container">
-                        <div class="row m-0 p-0">
-                            <div class="col-sm-12 col-lg-12 col-md-12 mx-auto text-center">
-                                <a class="btn btn-success btn-sm" href="#" role="button">Lihat</a>
-                                <a class="btn btn-primary btn-sm" href="#" role="button">Edit</a>
-                                <a class="btn btn-danger btn-sm" href="#" role="button">Hapus</a>
+            @foreach ($data as $artikel)
+                <tr>
+                    <td>{{ Str::limit($artikel->artikel_judul, 55, '...') }}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div class="container">
+                            <div class="row m-0 p-0">
+                                <div class="col-sm-12 col-lg-12 col-md-12 mx-auto text-center">
+                                    <a class="btn btn-success btn-sm" href="#" role="button">Lihat</a>
+                                    <a class="btn btn-primary btn-sm" href="#" role="button">Edit</a>
+                                    <a class="btn btn-danger btn-sm" href="#" role="button">Hapus</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </td>
-            </tr>
+                    </td>
+                </tr>
+            @endforeach
         </table>
     </div>
 </div>
