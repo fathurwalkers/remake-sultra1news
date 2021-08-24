@@ -21,13 +21,25 @@
             @foreach ($data as $artikel)
                 <tr>
                     <td>{{ Str::limit($artikel->artikel_judul, 45, '...') }}</td>
-                    <td>{{ $artikel->artikel_status }}</td>
+
+                    @switch($artikel->artikel_status)
+                        @case('published')
+                        <td><button class="btn btn-sm btn-success">{{ strtoupper($artikel->artikel_status) }}</td>        
+                            @break
+                        @case('draft')
+                        <td><button class="btn btn-sm btn-danger">{{ strtoupper($artikel->artikel_status) }}</td>        
+                            @break
+                        @case('review')
+                        <td><button class="btn btn-sm btn-info">{{ strtoupper($artikel->artikel_status) }}</td>        
+                            @break
+                    @endswitch
+
                     @if (!$artikel->login->name)
                         <td>Admin</td>
                     @else
                         <td>{{ $artikel->login->name }}</td>                    
                     @endif
-                    <td></td>
+                    <td>{{ $artikel->artikel_dibuat }}</td>
                     <td>
                         <div class="container">
                             <div class="row m-0 p-0">
