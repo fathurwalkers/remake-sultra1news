@@ -20,9 +20,13 @@
             <tbody>
             @foreach ($data as $artikel)
                 <tr>
-                    <td>{{ Str::limit($artikel->artikel_judul, 55, '...') }}</td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ Str::limit($artikel->artikel_judul, 45, '...') }}</td>
+                    <td>{{ $artikel->artikel_status }}</td>
+                    @if (!$artikel->login->name)
+                        <td>Admin</td>
+                    @else
+                        <td>{{ $artikel->login->name }}</td>                    
+                    @endif
                     <td></td>
                     <td>
                         <div class="container">
