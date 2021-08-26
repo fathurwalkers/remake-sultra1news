@@ -135,4 +135,10 @@ class ArtikelController extends Controller
         return redirect()->route('daftar-artikel');
         // dd($artikel);
     }
+
+    public function editArtikel(Artikel $artikel)
+    {
+        dd($artikel);
+        return view('dashboard.edit-artikel');
+    }
 }

@@ -46,7 +46,7 @@
                             <div class="row m-0 p-0">
                                 <div class="col-sm-12 col-lg-12 col-md-12 mx-auto text-center">
                                     <a class="btn btn-success btn-sm" href="#" role="button">Lihat</a>
-                                    <a class="btn btn-primary btn-sm" href="#" role="button">Edit</a>
+                                    <a class="btn btn-primary btn-sm" href="{{ route('edit-artikel', $artikel->id) }}" role="button">Edit</a>
                                     {{-- <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal">
                                         Hapus
                                         {{ $artikel->id }}

@@ -26,6 +26,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     Route::get('/generate-artikel', [ArtikelController::class, 'generateArtikel'])->name('generate-artikel');
     Route::get('/daftar-artikel', [ArtikelController::class, 'daftarArtikel'])->name('daftar-artikel');
     Route::get('/tambah-artikel', [ArtikelController::class, 'tambahArtikel'])->name('tambah-artikel');
+    Route::get('/edit-artikel/{artikel}', [ArtikelController::class, 'editArtikel'])->name('edit-artikel');
     Route::post('/tambah-artikel', [ArtikelController::class, 'postTambahArtikel'])->name('post-tambah-artikel');
     Route::delete('/delete-artikel/{id}', [ArtikelController::class, 'deleteArtikel'])->name('delete-artikel');
 
