@@ -9,6 +9,7 @@ use App\Models\Gambar;
 use App\Models\Kategori;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
+use Faker\Factory as Faker;
 
 class ArtikelController extends Controller
 {
@@ -81,5 +82,43 @@ class ArtikelController extends Controller
         $saveArtikel->save();
         $saveArtikel->kategori()->attach($kategori);
         return redirect()->route('daftar-artikel')->with('berhasil_posting', 'Artikel berhasil di posting!');
+    }
+
+    public function generateArtikel()
+    {
+        $faker = Faker::create('id_ID');
+        $dateReq = $faker->date('d-m-Y');
+        $newDate = date("d-m-Y", strtotime($dateReq));
+
+        $kategori = Kategori::all()->toArray();
+        $randomKategori = Arr::random($kategori, 5);
+        $iter = [3, 4, 5, 6, 7, 8];
+        $randomIter = Arr::random($iter);
+        $artikelStatus = ['published', 'draft', 'review'];
+        $randomArtikelStatus = Arr::random($artikelStatus);
+
+        $postJudul = $faker->words($randomIter, true);
+        $ExplodeJudul = explode(" ", $postJudul);
+        $judulPostImplode = [];
+        for ($x = 1; $x < 8; $x++) {
+            $judulPostImplode = Arr::prepend($judulPostImplode, $ExplodeJudul[$x]);
+        }
+        $trimJudul = str_replace(array(',', '.', '!'), '', $judulPostImplode);
+        $artikel_slug = implode("-", $trimJudul);
+
+        $saveArtikel = new Artikel;
+        $saveArtikel = Artikel::create([
+            'artikel_judul' => $postJudul,
+            'artikel_isi' => $faker->paragraphs($randomIter, true),
+            'artikel_slug' => $artikel_slug,
+            'artikel_status' => $randomArtikelStatus,
+            'artikel_dibuat' => $newDate,
+            'login_id' => 1,
+            'artikel_headergambar' => '2f7c0hiwgx.jpg',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $saveArtikel->save();
+        $saveArtikel->kategori()->attach($randomKategori);
     }
 }

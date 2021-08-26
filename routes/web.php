@@ -23,6 +23,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     Route::post('/logout', [BackController::class, 'logout'])->name('logout');
 
     // Artikel Route
+    Route::get('/generate-artikel', [ArtikelController::class, 'generateArtikel'])->name('generate-artikel');
     Route::get('/daftar-artikel', [ArtikelController::class, 'daftarArtikel'])->name('daftar-artikel');
     Route::get('/tambah-artikel', [ArtikelController::class, 'tambahArtikel'])->name('tambah-artikel');
     Route::post('/tambah-artikel', [ArtikelController::class, 'postTambahArtikel'])->name('post-tambah-artikel');
