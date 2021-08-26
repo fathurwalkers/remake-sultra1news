@@ -19,6 +19,7 @@
         </thead>
             <tbody>
             @foreach ($data as $artikel)
+            
                 <tr>
                     <td>{{ Str::limit($artikel->artikel_judul, 45, '...') }}</td>
 
@@ -46,14 +47,42 @@
                                 <div class="col-sm-12 col-lg-12 col-md-12 mx-auto text-center">
                                     <a class="btn btn-success btn-sm" href="#" role="button">Lihat</a>
                                     <a class="btn btn-primary btn-sm" href="#" role="button">Edit</a>
-                                    <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal">
+                                    {{-- <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal">
                                         Hapus
-                                    </a>
+                                        {{ $artikel->id }}
+                                    </a> --}}
+                                    <form action="{{route('delete-artikel', [$artikel->id])}}" class="d-inline"
+                                        onsubmit="return confirm('Klik OK, jika ingin menghapus data?{{ $artikel->id }}')" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <input type="submit" class="btn btn-danger btn-sm" value="Delete {{ $artikel->id }}">
+                                    </form>
                                     {{-- <form action="{{ route('delete-artikel') }}" method="POST">
                                         @csrf
                                         <button class="btn btn-danger btn-sm" type="submit" role="button">Hapus</button>
                                     </form> --}}
-                                    <div class="modal fade" id="hapusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                    {{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                            {{ $artikel->id }}
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                              <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div> --}}
+
+                                    {{-- <div class="modal fade" id="hapusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -64,15 +93,19 @@
                                                 </div>
                                                 <div class="modal-body">Apakah anda yakin ingin menghapus Postingan ini?</div>
                                                 <div class="modal-footer">
-                                                    <form action="{{ route('delete-artikel', $artikel->id) }}" method="POST">
+                                                    <form action="{{ route('delete-artikel', [$artikel->id]) }}" method="POST">
                                                         @csrf
+                                                        @method('delete')
+                                                        <input type="hidden" value="{{ $artikel->id }}" name="post_id">
                                                         <a class="btn btn-secondary" data-dismiss="modal">Batalkan</a>
-                                                        <button class="btn btn-primary" type="submit">Hapus</button>
+                                                        <button class="btn btn-primary" type="submit">Hapus
+                                                            {{ $artikel->id }}
+                                                        </button>
                                                     </form>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>

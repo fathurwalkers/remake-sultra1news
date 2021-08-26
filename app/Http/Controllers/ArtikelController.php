@@ -130,6 +130,9 @@ class ArtikelController extends Controller
 
     public function deleteArtikel(Request $request, $id)
     {
-        dd($id);
+        $artikel = Artikel::findOrFail($id);
+        $artikel->delete();
+        return redirect()->route('daftar-artikel');
+        // dd($artikel);
     }
 }
