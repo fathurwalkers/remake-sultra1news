@@ -86,42 +86,46 @@ class ArtikelController extends Controller
 
     public function generateArtikel()
     {
-        $faker = Faker::create('id_ID');
-        $dateReq = $faker->date('d-m-Y');
-        $newDate = date("d-m-Y", strtotime($dateReq));
-
-        $iter = [3, 4, 5, 6, 7, 8];
-        $randomIter = Arr::random($iter);
-
-        $kategori = Kategori::all()->toArray();
-        $randomKategori = Arr::random($kategori, $randomIter);
-        // dd($randomKategori);
-
-        $artikelStatus = ['published', 'draft', 'review'];
-        $randomArtikelStatus = Arr::random($artikelStatus);
-
-        $postJudul = $faker->words($randomIter, true);
-        $ExplodeJudul = explode(" ", $postJudul);
-        $judulPostImplode = [];
-        for ($x = 1; $x < count($ExplodeJudul); $x++) {
-            $judulPostImplode = Arr::prepend($judulPostImplode, $ExplodeJudul[$x]);
-            $trimJudul = str_replace(array(',', '.', '!'), '', $judulPostImplode);
-            $artikel_slug = implode("-", $trimJudul);
+        for ($op = 0; $op < 10; $op++) {
+            $faker = Faker::create('id_ID');
+            $dateReq = $faker->date('d-m-Y');
+            $newDate = date("d-m-Y", strtotime($dateReq));
+    
+            $iter = [3, 4, 5, 6, 7, 8];
+            $randomIter = Arr::random($iter);
+    
+            $kategori = Kategori::all()->toArray();
+            $randomKategori = Arr::random($kategori, $randomIter);
+            // dd($randomKategori);
+    
+            $artikelStatus = ['published', 'draft', 'review'];
+            $randomArtikelStatus = Arr::random($artikelStatus);
+    
+            $postJudul = $faker->words($randomIter, true);
+            $ExplodeJudul = explode(" ", $postJudul);
+            $judulPostImplode = [];
+            for ($x = 1; $x < count($ExplodeJudul); $x++) {
+                $judulPostImplode = Arr::prepend($judulPostImplode, $ExplodeJudul[$x]);
+                $trimJudul = str_replace(array(',', '.', '!'), '', $judulPostImplode);
+                $artikel_slug = implode("-", $trimJudul);
+            }
+            $isiPost = $faker->paragraphs($randomIter, true);
+            $replaceNewLine = str_replace('\\n', "<br>", $isiPost);
+            $saveArtikel = new Artikel;
+            $saveArtikel = Artikel::create([
+                'artikel_judul' => $postJudul,
+                'artikel_isi' => $replaceNewLine,
+                'artikel_slug' => $artikel_slug,
+                'artikel_status' => $randomArtikelStatus,
+                'artikel_dibuat' => $newDate,
+                'login_id' => 1,
+                'artikel_headergambar' => '2f7c0hiwgx.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+            $saveArtikel->save();
+            $saveArtikel->kategori()->attach($randomKategori[0]['id']);
         }
-        $saveArtikel = new Artikel;
-        $saveArtikel = Artikel::create([
-            'artikel_judul' => $postJudul,
-            'artikel_isi' => $faker->paragraphs($randomIter, true),
-            'artikel_slug' => $artikel_slug,
-            'artikel_status' => $randomArtikelStatus,
-            'artikel_dibuat' => $newDate,
-            'login_id' => 1,
-            'artikel_headergambar' => '2f7c0hiwgx.jpg',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        $saveArtikel->save();
-        $saveArtikel->kategori()->attach($randomKategori[0]['id']);
-        dd($saveArtikel);
+        return redirect()->route('daftar-artikel')->with('berhasil_generateArtikel', '10 Artikel telah berhasil di generate!');
     }
 }
