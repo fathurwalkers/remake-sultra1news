@@ -138,7 +138,9 @@ class ArtikelController extends Controller
 
     public function editArtikel(Artikel $artikel)
     {
-        dd($artikel);
-        return view('dashboard.edit-artikel');
+        $data = $artikel;
+        return view('dashboard.edit-artikel', [
+            'data' => $data
+        ]);
     }
 }
