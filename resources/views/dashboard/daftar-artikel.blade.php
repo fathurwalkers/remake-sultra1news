@@ -7,7 +7,7 @@
         <a class="btn btn-success btn-sm float-right" href="{{ route('tambah-artikel') }}" role="button">Tambah Postingan</a>
     </div>
     <div class="card-body">
-        <table id="example1" class="table table-bordered" style="width:100%">
+        <table id="example1" class="table table-bordered table-responsive" style="width:100%">
             <thead class="thead-dark">
             <tr>
                 <th>Judul</th>
@@ -39,14 +39,40 @@
                     @else
                         <td>{{ $artikel->login->name }}</td>                    
                     @endif
-                    <td>{{ $artikel->artikel_dibuat }}</td>
+                    <td>{{ date("D, M - Y", strtotime($artikel->artikel_dibuat)) }}</td>
                     <td>
                         <div class="container">
                             <div class="row m-0 p-0">
                                 <div class="col-sm-12 col-lg-12 col-md-12 mx-auto text-center">
                                     <a class="btn btn-success btn-sm" href="#" role="button">Lihat</a>
                                     <a class="btn btn-primary btn-sm" href="#" role="button">Edit</a>
-                                    <a class="btn btn-danger btn-sm" href="#" role="button">Hapus</a>
+                                    <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal">
+                                        Hapus
+                                    </a>
+                                    {{-- <form action="{{ route('delete-artikel') }}" method="POST">
+                                        @csrf
+                                        <button class="btn btn-danger btn-sm" type="submit" role="button">Hapus</button>
+                                    </form> --}}
+                                    <div class="modal fade" id="hapusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">Apakah anda yakin ingin menghapus Postingan ini?</div>
+                                                <div class="modal-footer">
+                                                    <form action="{{ route('delete-artikel', $artikel->id) }}" method="POST">
+                                                        @csrf
+                                                        <a class="btn btn-secondary" data-dismiss="modal">Batalkan</a>
+                                                        <button class="btn btn-primary" type="submit">Hapus</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -56,6 +82,26 @@
         </table>
     </div>
 </div>
+{{-- <div class="modal fade" id="hapusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Apakah anda yakin ingin menghapus Postingan ini?</div>
+            <div class="modal-footer">
+                <form action="{{ route('delete-artikel', $) }}" method="POST">
+                    @csrf
+                    <a class="btn btn-secondary" data-dismiss="modal">Batalkan</a>
+                    <button class="btn btn-primary" type="submit">Hapus</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> --}}
 @endsection
 
 @push('js')

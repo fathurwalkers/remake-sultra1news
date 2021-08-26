@@ -96,7 +96,6 @@ class ArtikelController extends Controller
     
             $kategori = Kategori::all()->toArray();
             $randomKategori = Arr::random($kategori, $randomIter);
-            // dd($randomKategori);
     
             $artikelStatus = ['published', 'draft', 'review'];
             $randomArtikelStatus = Arr::random($artikelStatus);
@@ -127,5 +126,10 @@ class ArtikelController extends Controller
             $saveArtikel->kategori()->attach($randomKategori[0]['id']);
         }
         return redirect()->route('daftar-artikel')->with('berhasil_generateArtikel', '10 Artikel telah berhasil di generate!');
+    }
+
+    public function deleteArtikel(Request $request, $id)
+    {
+        dd($id);
     }
 }
