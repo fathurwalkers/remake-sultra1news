@@ -14,7 +14,7 @@ class CreateArtikelsTable extends Migration
             $table->longText('artikel_isi');
             $table->string('artikel_slug');
             $table->string('artikel_status'); // PUBLISHED - DRAFT - TRASH
-            $table->string('artikel_dibuat');
+            $table->date('artikel_dibuat');
             $table->unsignedBigInteger('login_id')->nullable();
             $table->foreign('login_id')->references('id')->on('login');
             $table->string('artikel_headergambar')->nullable();
