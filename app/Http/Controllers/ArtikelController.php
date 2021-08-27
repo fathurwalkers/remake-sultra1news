@@ -150,7 +150,12 @@ class ArtikelController extends Controller
         $kategori = Kategori::all();
         return view('dashboard.edit-artikel', [
             'kategori' => $kategori,
-            'data' => $data
+            'artikel' => $data
         ]);
+    }
+
+    public function updateArtikel(Request $request, Artikel $artikel)
+    {
+        dd($artikel);
     }
 }

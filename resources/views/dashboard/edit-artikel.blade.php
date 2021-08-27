@@ -31,7 +31,7 @@
         </div>
         <div class="card-body">
             <div class="container">
-                <form action="{{ route('post-tambah-artikel') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('update-artikel', $artikel->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-lg-8 col-sm-8 col-md-8">
@@ -44,14 +44,14 @@
                                                     <div class="input-group-prepend">
                                                     <span class="input-group-text" id="inputGroup-sizing-default">Judul : </span>
                                                     </div>
-                                                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="artikel_judul">
+                                                    <input type="text" value="{{ $artikel->artikel_judul }}" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="artikel_judul">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12 col-md-12">
                                                 <textarea  name="artikel_isi">
-                                                    
+                                                    {{ $artikel->artikel_isi }}
                                                 </textarea>
                                             </div>
                                         </div>
@@ -66,12 +66,12 @@
 
                                         <div class="row mb-2">
                                             <div class="col-lg-12 col-sm-12 col-md-12 d-flex justify-content-start inline">
-                                                <input type="date" name="artikel_dibuat">  
+                                                <input type="date" name="artikel_dibuat" value={{ $artikel->artikel_dibuat }}>  
                                                 </div>  
                                             </div>
                                         </div>
 
-                                        <div class="row mx-auto">
+                                        {{-- <div class="row mx-auto">
                                             <div class="col-lg-12 col-sm-12 col-md-12 mx-auto d-flex justify-content-center">
                                                 <div class="input-group mb-2">
                                                     <div class="input-group-prepend">
@@ -88,9 +88,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
 
-                                        <div class="row mx-auto">
+                                        {{-- <div class="row mx-auto">
                                             <div class="col-lg-12 col-sm-12 col-md-12">
                                                 <div class="input-group mb-2">
                                                     <div class="input-group-prepend">
@@ -102,7 +102,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
 
                                         <div class="row mx-auto">
                                             <div class="col-lg-12 col-sm-12 col-md-12">
@@ -110,7 +110,7 @@
                                                     <div class="input-group-prepend">
                                                       <label class="input-group-text" for="inputGroupSelect01">Status Berita : </label>
                                                     </div>
-                                                    <select class="custom-select" id="inputGroupSelect01" name="artikel_status">
+                                                    <select class="custom-select" id="inputGroupSelect01" name="artikel_status" value="{{ $artikel->artikel_status }}">
                                                       <option selected>Choose...</option>
                                                       <option value="published">Published</option>
                                                       <option value="draft">Draft</option>
