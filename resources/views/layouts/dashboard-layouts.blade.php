@@ -72,7 +72,7 @@
                         <h6 class="collapse-header">Kelola Artikel</h6>
                         <a class="collapse-item" href="{{ route('daftar-artikel') }}">Semua Artikel</a>
                         <a class="collapse-item" href="{{ route('tambah-artikel') }}">Tambah Artikel</a>
-                        <a class="collapse-item" href="cards.html">Revisi Artikel</a>
+                        <a class="collapse-item" href="{{ route('daftar-artikel-review') }}">Review Artikel</a>
                         <a class="collapse-item" href="cards.html">Artikel Dihapus</a>
                         <a class="collapse-item" href="cards.html">Draft Artikel</a>
                     </div>

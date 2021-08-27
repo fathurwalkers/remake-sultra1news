@@ -21,6 +21,14 @@ class ArtikelController extends Controller
         ]);
     }
 
+    public function daftarArtikelReview()
+    {
+        $ok = Artikel::where('artikel_status', 'review')->get();
+        return view('dashboard.daftar-artikel-review', [
+            'data' => $ok
+        ]);
+    }
+
     public function tambahArtikel()
     {
         $kategori = Kategori::all();
@@ -139,7 +147,9 @@ class ArtikelController extends Controller
     public function editArtikel(Artikel $artikel)
     {
         $data = $artikel;
+        $kategori = Kategori::all();
         return view('dashboard.edit-artikel', [
+            'kategori' => $kategori,
             'data' => $data
         ]);
     }
