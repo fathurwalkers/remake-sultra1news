@@ -156,6 +156,32 @@ class ArtikelController extends Controller
 
     public function updateArtikel(Request $request, Artikel $artikel)
     {
-        dd($artikel);
+        $artikel_dibuat = $request->artikel_dibuat;
+        $newDate = date("d-m-Y", strtotime($artikel_dibuat));
+    
+        $iter = [3, 4, 5, 6, 7, 8];
+        $randomIter = Arr::random($iter);
+    
+        $artikel_status = $request->artikel_status;
+    
+        $postJudul = $request->artikel_judul;
+        $ExplodeJudul = explode(" ", $postJudul);
+        $judulPostImplode = [];
+        for ($x = 1; $x < count($ExplodeJudul); $x++) {
+            $judulPostImplode = Arr::prepend($judulPostImplode, $ExplodeJudul[$x]);
+            $trimJudul = str_replace(array(',', '.', '!'), '', $judulPostImplode);
+            $artikel_slug = implode("-", $trimJudul);
+        }
+        $isiPost = $request->artikel_isi;
+        $replaceNewLine = str_replace('\\n', "<br>", $isiPost);
+        $saveArtikel = Artikel::where('id', $artikel)->first()->update([
+                'artikel_judul' => $postJudul,
+                'artikel_isi' => $replaceNewLine,
+                'artikel_slug' => $artikel_slug,
+                'artikel_status' => $artikel_status,
+                'artikel_dibuat' => $newDate,
+                'updated_at' => now()
+            ]);
+        $saveArtikel->save();
     }
 }
