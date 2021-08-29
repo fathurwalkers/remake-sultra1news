@@ -158,15 +158,7 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <!-- Trending Top -->
-                        <div class="trending-top mb-30">
-                            <div class="trend-top-img">
-                                <img src="{{ asset('assets/aznews') }}/assets/img/trending/trending_top.jpg" alt="">
-                                <div class="trend-top-cap">
-                                    <span>Appetizers</span>
-                                    <h2><a href="details.html">Welcome To The Best Model Winner<br> Contest At Look of the year</a></h2>
-                                </div>
-                            </div>
-                        </div>
+                        @yield('trending-top')
                         <!-- Trending Bottom -->
                         <div class="trending-bottom">
                             <div class="row">

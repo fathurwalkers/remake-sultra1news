@@ -4,6 +4,24 @@
     {{ dump($artikel->kategori) }}
 @endforeach --}}
 
+@section('trending-top')
+    @foreach ($artikel_trendingtop as $artikeltop)
+    <div class="trending-top mb-30">
+        <div class="trend-top-img">
+            <img src="{{ asset('assets/aznews') }}/assets/img/trending/trending_top.jpg" alt="">
+            <div class="trend-top-cap">
+                @foreach ($artikeltop->kategori as $kategoriname2)
+                    <span>
+                        {{ $kategoriname2->kategori_name }}
+                    </span>
+                @endforeach
+                <h2><a href="details.html">{{ Str::limit($artikeltop->artikel_judul, 45) }}</a></h2>
+            </div>
+        </div>
+    </div>
+    @endforeach
+@endsection
+
 @section('right-content')
 <div class="col-lg-4">
     @php $iter = [1, 3, 4]
