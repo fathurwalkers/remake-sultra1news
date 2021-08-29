@@ -17,11 +17,13 @@ class HomeController extends Controller
         $artikel = Artikel::all();
         $artikel_trendingtop = $artikel->sortByDesc('artikel_dibuat')->take(1);
         $artikel_5 = $artikel->sortByDesc('artikel_dibuat')->take(5);
-        $artikel_random_3 = $artikel->random()->take(5);
+        $artikel_random_3 = $artikel->random(3);
+        $artikel_animated = $artikel->random(5);
         return view('home', [
             'artikel_5' => $artikel_5,
             'artikel_random_3' => $artikel_random_3,
             'artikel_trendingtop' => $artikel_trendingtop,
+            'artikel_animated' => $artikel_animated,
         ]);
     }
 
