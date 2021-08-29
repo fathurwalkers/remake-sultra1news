@@ -12,7 +12,6 @@ class CreateArtikelKategorisTable extends Migration
             $table->id();
             $table->unsignedBigInteger('artikel_id');
             $table->foreign('artikel_id')->references('id')->on('artikel')->onDelete('cascade')->onUpdate('cascade');
-
             $table->unsignedBigInteger('kategori_id');
             $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

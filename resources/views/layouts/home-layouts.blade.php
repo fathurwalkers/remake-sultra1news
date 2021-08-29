@@ -207,53 +207,7 @@
                         </div>
                     </div>
                     <!-- Riht content -->
-                    <div class="col-lg-4">
-                        <div class="trand-right-single d-flex">
-                            <div class="trand-right-img">
-                                <img src="{{ asset('assets/aznews') }}/assets/img/trending/right1.jpg" alt="">
-                            </div>
-                            <div class="trand-right-cap">
-                                <span class="color1">Concert</span>
-                                <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
-                            </div>
-                        </div>
-                        <div class="trand-right-single d-flex">
-                            <div class="trand-right-img">
-                                <img src="{{ asset('assets/aznews') }}/assets/img/trending/right2.jpg" alt="">
-                            </div>
-                            <div class="trand-right-cap">
-                                <span class="color3">sea beach</span>
-                                <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
-                            </div>
-                        </div>
-                        <div class="trand-right-single d-flex">
-                            <div class="trand-right-img">
-                                <img src="{{ asset('assets/aznews') }}/assets/img/trending/right3.jpg" alt="">
-                            </div>
-                            <div class="trand-right-cap">
-                                <span class="color2">Bike Show</span>
-                                <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
-                            </div>
-                        </div> 
-                        <div class="trand-right-single d-flex">
-                            <div class="trand-right-img">
-                                <img src="{{ asset('assets/aznews') }}/assets/img/trending/right4.jpg" alt="">
-                            </div>
-                            <div class="trand-right-cap">
-                                <span class="color4">See beach</span>
-                                <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
-                            </div>
-                        </div>
-                        <div class="trand-right-single d-flex">
-                            <div class="trand-right-img">
-                                <img src="{{ asset('assets/aznews') }}/assets/img/trending/right5.jpg" alt="">
-                            </div>
-                            <div class="trand-right-cap">
-                                <span class="color1">Skeping</span>
-                                <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
-                            </div>
-                        </div>
-                    </div>
+                    @yield('right-content')
                 </div>
             </div>
         </div>
@@ -663,10 +617,10 @@
             <div class="col-lg-4">
                 <!-- Section Tittle -->
                 <div class="section-tittle mb-40">
-                    <h3>Follow Us</h3>
+                    <h3 class="text-center">Advetorial Banner</h3>
                 </div>
                 <!-- Flow Socail -->
-                <div class="single-follow mb-45">
+                {{-- <div class="single-follow mb-45">
                     <div class="single-box">
                         <div class="follow-us d-flex align-items-center">
                             <div class="follow-social">
@@ -705,13 +659,17 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- New Poster -->
                 <div class="news-poster d-none d-lg-block">
                     <img src="{{ asset('assets/aznews') }}/assets/img/news/news_card.jpg" alt="">
                 </div>
             </div>
-            </div>
+            
+
+            {{-- </div> --}}
+
+
         </div>
     </section>
     <!-- Whats New End -->
@@ -785,10 +743,10 @@
                 </div>
             </div>
         </div>
-    </div>           
+    </div>       
     <!-- End Weekly-News -->
     <!-- Start Youtube -->
-    <div class="youtube-area video-padding">
+    {{-- <div class="youtube-area video-padding">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -863,7 +821,7 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>  --}}
     <!-- End Start youtube -->
     <!--  Recent Articles start -->
     <div class="recent-articles">

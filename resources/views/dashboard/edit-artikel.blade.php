@@ -111,7 +111,7 @@
                                                       <label class="input-group-text" for="inputGroupSelect01">Status Berita : </label>
                                                     </div>
                                                     <select class="custom-select" id="inputGroupSelect01" name="artikel_status" value="{{ $artikel->artikel_status }}">
-                                                      <option selected>Choose...</option>
+                                                      <option selected>{{ $artikel->artikel_status }}</option>
                                                       <option value="published">Published</option>
                                                       <option value="draft">Draft</option>
                                                       <option value="review">Review</option>

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Kategori;
 use App\Models\Komen;
 use App\Models\Login;
+use App\Models\ArtikelKategori;
 
 class Artikel extends Model
 {
@@ -15,6 +16,7 @@ class Artikel extends Model
     protected $table = 'artikel';
 
     protected $guarded = [];
+    protected $primaryKey = 'id';
 
     public function kategori()
     {

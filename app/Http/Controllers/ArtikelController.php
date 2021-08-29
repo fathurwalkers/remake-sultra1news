@@ -23,7 +23,7 @@ class ArtikelController extends Controller
 
     public function daftarArtikelReview()
     {
-        $ok = Artikel::where('artikel_status', 'review')->get();
+        $ok = Artikel::where('artikel_status', 'review')->sortByDesc('artikel_dibuat')->get();
         return view('dashboard.daftar-artikel-review', [
             'data' => $ok
         ]);
@@ -161,8 +161,9 @@ class ArtikelController extends Controller
     
         $iter = [3, 4, 5, 6, 7, 8];
         $randomIter = Arr::random($iter);
-    
+
         $artikel_status = $request->artikel_status;
+
     
         $postJudul = $request->artikel_judul;
         $ExplodeJudul = explode(" ", $postJudul);
@@ -183,5 +184,6 @@ class ArtikelController extends Controller
                 'updated_at' => now()
             ]);
         // $saveArtikel->save();
+        return redirect()->route('daftar-artikel')->with('berhasil_update', 'Artikel telah berhasil di update!');
     }
 }
