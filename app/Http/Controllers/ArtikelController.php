@@ -96,8 +96,8 @@ class ArtikelController extends Controller
     {
         for ($op = 0; $op < 10; $op++) {
             $faker = Faker::create('id_ID');
-            $dateReq = $faker->date('d-m-Y');
-            $newDate = date("d-m-Y", strtotime($dateReq));
+            $dateReq = $faker->date('Y-m-d H:i:s');
+            // $newDate = date(strtotime($dateReq));
     
             $iter = [3, 4, 5, 6, 7, 8];
             $randomIter = Arr::random($iter);
@@ -124,7 +124,7 @@ class ArtikelController extends Controller
                 'artikel_isi' => $replaceNewLine,
                 'artikel_slug' => $artikel_slug,
                 'artikel_status' => $randomArtikelStatus,
-                'artikel_dibuat' => $newDate,
+                'artikel_dibuat' => $dateReq,
                 'login_id' => 1,
                 'artikel_headergambar' => '2f7c0hiwgx.jpg',
                 'created_at' => now(),
@@ -157,7 +157,7 @@ class ArtikelController extends Controller
     public function updateArtikel(Request $request, Artikel $artikel)
     {
         $artikel_dibuat = $request->artikel_dibuat;
-        $newDate = date("d-m-Y", strtotime($artikel_dibuat));
+        $newDate = date('Y-m-d H:i:s', strtotime($artikel_dibuat));
     
         $iter = [3, 4, 5, 6, 7, 8];
         $randomIter = Arr::random($iter);
@@ -174,7 +174,7 @@ class ArtikelController extends Controller
         }
         $isiPost = $request->artikel_isi;
         $replaceNewLine = str_replace('\\n', "<br>", $isiPost);
-        $saveArtikel = Artikel::where('id', $artikel)->first()->update([
+        $saveArtikel = Artikel::where('id', $artikel->id)->first()->update([
                 'artikel_judul' => $postJudul,
                 'artikel_isi' => $replaceNewLine,
                 'artikel_slug' => $artikel_slug,
@@ -182,6 +182,6 @@ class ArtikelController extends Controller
                 'artikel_dibuat' => $newDate,
                 'updated_at' => now()
             ]);
-        $saveArtikel->save();
+        // $saveArtikel->save();
     }
 }
