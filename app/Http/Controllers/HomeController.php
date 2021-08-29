@@ -15,15 +15,21 @@ class HomeController extends Controller
     public function index()
     {
         $artikel = Artikel::all();
+        $artikel_paginate = Artikel::latest()->paginate(4);
         $artikel_trendingtop = $artikel->sortByDesc('artikel_dibuat')->take(1);
         $artikel_5 = $artikel->sortByDesc('artikel_dibuat')->take(5);
         $artikel_random_3 = $artikel->random(3);
+        $artikelweekly_one = $artikel->random(4);
+        $artikelweekly_two = $artikel->random(5);
         $artikel_animated = $artikel->random(5);
         return view('home', [
             'artikel_5' => $artikel_5,
             'artikel_random_3' => $artikel_random_3,
+            'artikelweekly_one' => $artikelweekly_one,
+            'artikelweekly_two' => $artikelweekly_two,
             'artikel_trendingtop' => $artikel_trendingtop,
             'artikel_animated' => $artikel_animated,
+            'artikel_paginate' => $artikel_paginate,
         ]);
     }
 
