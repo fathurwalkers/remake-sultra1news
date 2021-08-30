@@ -13,6 +13,7 @@
                 <th>Judul</th>
                 <th>Status</th>
                 <th>Penulis</th>
+                <th>Kategori</th>
                 <th>Tanggal Posting</th>
                 <th>Kelola</th>
             </tr>
@@ -40,8 +41,15 @@
                     @else
                         <td>{{ $artikel->login->name }}</td>                    
                     @endif
+                    <td class="mx-auto">
+                        @foreach ($artikel->kategori as $namekategori)
+                            {{-- @foreach ($namekategori as $kategori) --}}
+                            <a class="btn btn-success btn-sm" href="#" role="button">{{ $namekategori->kategori_name }}</a>
+                            {{-- @endforeach --}}
+                        @endforeach
+                    </td>
                     <td>{{ date("D, M - Y", strtotime($artikel->artikel_dibuat)) }}</td>
-                    <td>
+                    <td class="">
                         <div class="container">
                             <div class="row m-0 p-0">
                                 <div class="col-sm-12 col-lg-12 col-md-12 mx-auto text-center">

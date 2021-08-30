@@ -15,9 +15,11 @@ class ArtikelController extends Controller
 {
     public function daftarArtikel()
     {
-        $ok = Artikel::all();
+        $noww = now();
+        $artikel = Artikel::all();
+        $ok = $artikel->sortByDesc('artikel_dibuat')->all();
         return view('dashboard.daftar-artikel', [
-            'data' => $ok
+            'data' => $ok,
         ]);
     }
 
@@ -81,7 +83,7 @@ class ArtikelController extends Controller
             'artikel_isi' => $artikel_isi,
             'artikel_slug' => $artikel_slug,
             'artikel_status' => $artikel_status,
-            'artikel_dibuat' => $newDate,
+            'artikel_dibuat' => $req_date,
             'artikel_headergambar' => $saveGambar->gambar_name,
             'created_at' => now(),
             'updated_at' => now()
