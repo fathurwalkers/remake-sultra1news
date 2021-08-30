@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>News HTML-5 Template </title>
+        <title>Sultra1News - Investigasi Dalam Berita</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="site.webmanifest">
@@ -70,7 +70,7 @@
                             <!-- Logo -->
                             <div class="col-xl-3 col-lg-3 col-md-3">
                                 <div class="logo">
-                                    <a href="index.html"><img src="{{ asset('assets/aznews') }}/assets/img/logo/logo.png" alt=""></a>
+                                    <a href="{{ route('home') }}"><img src="{{ asset('assets/aznews') }}/assets/img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-9 col-lg-9 col-md-9">
@@ -87,25 +87,25 @@
                             <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                                 <!-- sticky -->
                                     <div class="sticky-logo">
-                                        <a href="index.html"><img src="{{ asset('assets/aznews') }}/assets/img/logo/logo.png" alt=""></a>
+                                        <a href="{{ route('home') }}"><img src="{{ asset('assets/aznews') }}/assets/img/logo/logo.png" alt=""></a>
                                     </div>
                                 <!-- Main-menu -->
                                 <div class="main-menu d-none d-md-block">
                                     <nav>                  
                                         <ul id="navigation">    
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="categori.html">Category</a></li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="latest_news.html">Latest News</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="#">Pages</a>
+                                            <li><a href="{{ route('home') }}">Home</a></li>
+                                            {{-- <li><a href="categori.html">Category</a></li> --}}
+                                            <li><a href="{{ route('about') }}">About</a></li>
+                                            {{-- <li><a href="latest_news.html">Latest News</a></li> --}}
+                                            <li><a href="{{ route('contact') }}">Contact</a></li>
+                                            {{-- <li><a href="#">Pages</a>
                                                 <ul class="submenu">
                                                     <li><a href="elements.html">Element</a></li>
                                                     <li><a href="blog.html">Blog</a></li>
                                                     <li><a href="single-blog.html">Blog Details</a></li>
                                                     <li><a href="details.html">Categori Details</a></li>
                                                 </ul>
-                                            </li>
+                                            </li> --}}
                                         </ul>
                                     </nav>
                                 </div>
@@ -151,7 +151,6 @@
                                     @endforeach
                                 </ul>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
@@ -674,7 +673,7 @@
                             <div class="single-footer-caption">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="{{ asset('assets/aznews') }}/assets/img/logo/logo2_footer.png" alt=""></a>
+                                    <a href="{{ route('home') }}"><img src="{{ asset('assets/aznews') }}/assets/img/logo/logo2_footer.png" alt=""></a>
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">

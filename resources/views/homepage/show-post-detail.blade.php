@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-         <title>News HTML-5 Template </title>
+         <title>Sultra1News - {{ $artikel->artikel_judul }}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -75,7 +75,7 @@
                             <!-- Logo -->
                             <div class="col-xl-3 col-lg-3 col-md-3">
                                 <div class="logo">
-                                    <a href="index.html"><img src="{{ asset('assets/aznews') }}/assets/img/logo/logo.png" alt=""></a>
+                                    <a href="{{ route('home') }}"><img src="{{ asset('assets/aznews') }}/assets/img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-9 col-lg-9 col-md-9">
@@ -92,18 +92,18 @@
                             <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                                 <!-- sticky -->
                                     <div class="sticky-logo">
-                                        <a href="index.html"><img src="{{ asset('assets/aznews') }}/assets/img/logo/logo.png" alt=""></a>
+                                        <a href="{{ route('home') }}"><img src="{{ asset('assets/aznews') }}/assets/img/logo/logo.png" alt=""></a>
                                     </div>
                                 <!-- Main-menu -->
                                 <div class="main-menu d-none d-md-block">
                                     <nav>                  
                                         <ul id="navigation">    
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="categori.html">Category</a></li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="latest_news.html">Latest News</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="#">Pages</a>
+                                            <li><a href="{{ route('home') }}">Home</a></li>
+                                            {{-- <li><a href="categori.html">Category</a></li> --}}
+                                            <li><a href="{{ route('about') }}">About</a></li>
+                                            {{-- <li><a href="latest_news.html">Latest News</a></li> --}}
+                                            <li><a href="{{ route('contact') }}">Contact</a></li>
+                                            <li><a href="#">Nasional</a>
                                                 <ul class="submenu">
                                                     <li><a href="elements.html">Element</a></li>
                                                     <li><a href="blog.html">Blog</a></li>
@@ -163,7 +163,7 @@
                             <!-- Trending Tittle -->
                             <div class="about-right mb-90">
                                 <div class="about-img">
-                                    <img src="{{ asset('assets/aznews') }}/assets/img/trending/trending_top.jpg" alt="">
+                                    <img src="{{ asset('post-images/') }}/{{ $artikel->artikel_headergambar }}" alt="" width="750">
                                 </div>
                                 <div class="section-tittle mb-30 pt-30">
                                     <h3>{{ $artikel->artikel_judul }}</h3>
@@ -173,7 +173,7 @@
                                         {!! $artikel->artikel_isi !!}
                                     </p>
                                 </div>
-                                <div class="social-share pt-30">
+                                {{-- <div class="social-share pt-30">
                                     <div class="section-tittle">
                                         <h3 class="mr-20">Share:</h3>
                                         <ul>
@@ -183,7 +183,7 @@
                                             <li><a href="#"><img src="{{ asset('assets/aznews') }}/assets/img/news/icon-yo.png" alt=""></a></li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <!-- From -->
                             {{-- <div class="row">
@@ -285,11 +285,13 @@
                             <div class="single-footer-caption">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="{{ asset('assets/aznews') }}/assets/img/logo/logo2_footer.png" alt=""></a>
+                                    <a href="{{ route('home') }}"><img src="{{ asset('assets/aznews') }}/assets/img/logo/logo2_footer.png" alt=""></a>
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">
-                                        <p>Suscipit mauris pede for con sectetuer sodales adipisci for cursus fames lectus tempor da blandit gravida sodales  Suscipit mauris pede for con sectetuer sodales adipisci for cursus fames lectus tempor da blandit gravida sodales  Suscipit mauris pede for sectetuer.</p>
+                                        <p>
+                                            Sultra1News adalah Platform Media Siber yang telah berdiri sejak Tahun 2016. Sultra1News menyediakan berbagai info menarik seputar kejadian aktual terkhusus di Daerah Sulawesi Tenggara. Saat ini sultra1news sudah mendapat banyak pembaca setia dari berbagai wilayah di Sulawesi Tenggara
+                                        </p>
                                     </div>
                                 </div>
                                 <!-- social -->
@@ -301,7 +303,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4  col-sm-6">
+                    {{-- <div class="col-xl-3 col-lg-3 col-md-4  col-sm-6">
                         <div class="single-footer-caption mt-60">
                             <div class="footer-tittle">
                                 <h4>Newsletter</h4>
@@ -324,8 +326,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
+                    </div> --}}
+                    {{-- <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
                         <div class="single-footer-caption mb-50 mt-60">
                             <div class="footer-tittle">
                                 <h4>Instagram Feed</h4>
@@ -341,7 +343,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -353,14 +355,14 @@
                         <div class="col-lg-6">
                             <div class="footer-copy-right">
                                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>.Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a></a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>.Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a></a>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="footer-menu f-right">
                                 <ul>                             
-                                    <li><a href="#">Terms of use</a></li>
+                                    <li><a href="#">Disclaimer</a></li>
                                     <li><a href="#">Privacy Policy</a></li>
                                     <li><a href="#">Contact</a></li>
                                 </ul>

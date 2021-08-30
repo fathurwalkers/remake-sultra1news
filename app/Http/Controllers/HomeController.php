@@ -12,6 +12,16 @@ use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
+    public function contact()
+    {
+        return view('homepage.contact');
+    }
+
+    public function about()
+    {
+        return view('homepage.about');
+    }
+
     public function index()
     {
         $artikel = Artikel::all();

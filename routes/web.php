@@ -11,7 +11,9 @@ Route::post('/post-login', [BackController::class, 'postLogin'])->name('post-log
 
 Route::group(['prefix' => '/'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/show/{slug}', [HomeController::class, 'showPostDetail'])->name('show-post-detail');
+    Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+    Route::get('/about', [HomeController::class, 'about'])->name('about');
+    Route::get('/show/post/{slug}', [HomeController::class, 'showPostDetail'])->name('show-post-detail');
 });
 
 Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function () {

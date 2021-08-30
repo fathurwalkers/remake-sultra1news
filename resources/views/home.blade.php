@@ -28,7 +28,7 @@
                                             {{ $kategoripaginate->kategori_name }}
                                         </span>
                                     @endforeach
-                                    <h4><a href="/show/{{ $artikelpaginate->artikel_slug }}">{{ $artikelpaginate->artikel_judul }}</a></h4>
+                                    <h4><a href="/show/post/{{ $artikelpaginate->artikel_slug }}">{{ $artikelpaginate->artikel_judul }}</a></h4>
                                 </div>
                             </div>
                         @endforeach
@@ -73,7 +73,7 @@
                         {{ $kategoriname2->kategori_name }}
                     </span>
                 @endforeach
-                <h2><a href="details.html">{{ Str::limit($artikeltop->artikel_judul, 45) }}</a></h2>
+                <h2><a href="/show/post/{{ $artikeltop->artikel_slug }}">{{ Str::limit($artikeltop->artikel_judul, 45) }}</a></h2>
             </div>
         </div>
     </div>
@@ -95,7 +95,7 @@
                                 {{ $kategoriname2->kategori_name }}
                             </span>
                         @endforeach
-                        <h4><a href="details.html">{{ Str::limit($artikelrandom3->artikel_judul, 40) }}</a></h4>
+                        <h4><a href="/show/post/{{ $artikelrandom3->artikel_slug }}">{{ Str::limit($artikelrandom3->artikel_judul, 40) }}</a></h4>
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@
                         </span>
                     @endforeach
                 {{-- @endforeach --}}
-            <h4><a href="details.html">{{ $artikel_right->artikel_judul }}</a></h4>
+            <h4><a href="/show/post/{{ $artikel_right->artikel_slug }}">{{ $artikel_right->artikel_judul }}</a></h4>
         </div>
     </div>
     @endforeach
@@ -154,7 +154,7 @@
                                             {{ $kategoriname_weeklyone->kategori_name }}
                                         </span>
                                     @endforeach
-                                    <h4><a href="#">{{ $weeklyone->artikel_judul }}</a></h4>
+                                    <h4><a href="/show/post/{{ $weeklyone->artikel_slug }}">{{ $weeklyone->artikel_judul }}</a></h4>
                                 </div>
                             </div>
                         @endforeach
@@ -193,7 +193,7 @@
                                         </span>
                                     @endforeach
                                     <p>{{ date("D, M - Y", strtotime($weeklytwo->artikel_dibuat)) }}</p>
-                                    <h4><a href="#">{{ $weeklytwo->artikel_judul }}</a></h4>
+                                    <h4><a href="/show/post/{{ $weeklytwo->artikel_slug }}">{{ $weeklytwo->artikel_judul }}</a></h4>
                                 </div>
                             </div> 
                         @endforeach
