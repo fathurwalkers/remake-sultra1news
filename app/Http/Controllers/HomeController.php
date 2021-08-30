@@ -35,9 +35,12 @@ class HomeController extends Controller
 
     public function showPostDetail($slug)
     {
+        $artikel_all = Artikel::all();
+        $artikel_animated = $artikel_all->random(5);
         $post = Artikel::where('artikel_slug', $slug)->first();
         return view('homepage.show-post-detail', [
-            'artikel' => $post
+            'artikel' => $post,
+            'artikel_animated' => $artikel_animated,
         ]);
     }
 }
