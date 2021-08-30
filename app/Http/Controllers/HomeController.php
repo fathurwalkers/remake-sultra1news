@@ -35,8 +35,9 @@ class HomeController extends Controller
 
     public function showPostDetail($slug)
     {
-        $post = $slug;
-        // dd($post);
-        return view('homepage.show-post-detail');
+        $post = Artikel::where('artikel_slug', $slug)->first();
+        return view('homepage.show-post-detail', [
+            'artikel' => $post
+        ]);
     }
 }

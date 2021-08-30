@@ -28,7 +28,7 @@
                                             {{ $kategoripaginate->kategori_name }}
                                         </span>
                                     @endforeach
-                                    <h4><a href="#">{{ $artikelpaginate->artikel_judul }}</a></h4>
+                                    <h4><a href="/show/{{ $artikelpaginate->artikel_slug }}">{{ $artikelpaginate->artikel_judul }}</a></h4>
                                 </div>
                             </div>
                         @endforeach

@@ -167,7 +167,7 @@
                                     <img src="{{ asset('assets/aznews') }}/assets/img/trending/trending_top.jpg" alt="">
                                 </div>
                                 <div class="section-tittle mb-30 pt-30">
-                                    <h3>Here come the moms in space</h3>
+                                    <h3>{{ $artikel->artikel_judul }}</h3>
                                 </div>
                                 <div class="about-prea">
                                     <p class="about-pera1 mb-25">Moms are like…buttons? Moms are like glue. Moms are like pizza crusts. Moms are the ones who make sure things happen—from birth to school lunch.</p>
